@@ -1,0 +1,31 @@
+.app-container {
+  display: flex;      // El div i el aside es col·loquen un al costat de l'altre
+  gap: 10rem;          // espai entre el div i el aside
+  padding: 2rem;      // marge interior
+  max-width: 1000px;  // ample màxim
+  margin: 0 auto;     // centra el contenidor
+  background: #fdeede;  // color de fons
+}
+
+.content {
+  padding: 1rem;            // marge interior
+  text-align: center;        // centra el text 
+    }
+
+.card {
+  border : 1px solid #333431;  // línia de contorn
+  display: flex;//centrar el contingut del card
+  flex-direction: column;   // col·locar el contingut del card en columna
+  text-align: left;         // alinear el text a l'esquerra
+  border-radius: 5px;       // cantonades arrodonides
+  padding: 1rem;            // marge interior
+  background : #e4e9dd;          // color de fons
+}
+
+aside {
+  border : 1px solid #576743;  // línia de contorn
+  background : #e4e9dd;          // color de fons
+  border-radius: 5px;       // cantonades arrodonides
+  padding: 1rem;            // marge interior
+  align-self: flex-start;  // alinear l'aside a l'inici del contenidor
+  }
