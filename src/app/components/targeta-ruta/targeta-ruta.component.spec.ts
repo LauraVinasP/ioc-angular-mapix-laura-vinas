@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TargetaRutaComponent } from './targeta-ruta.component';
+import { RUTES_MOCK } from '../../mocks/rutes-mock';
 
 describe('TargetaRutaComponent', () => {
   let component: TargetaRutaComponent;
@@ -12,7 +13,8 @@ describe('TargetaRutaComponent', () => {
 
     fixture = TestBed.createComponent(TargetaRutaComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.componentRef.setInput('ruta', RUTES_MOCK[0]);
+    fixture.detectChanges();
   });
 
   it('should create', () => {
