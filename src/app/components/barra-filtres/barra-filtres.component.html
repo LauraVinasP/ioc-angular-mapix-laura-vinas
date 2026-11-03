@@ -1,0 +1,33 @@
+<form class="filtres" #formulariFiltres="ngForm" (ngSubmit)="aplicaFiltres()">
+  <div class="camp">
+    <label for="text-cerca">Cerca per nom</label>
+    <input
+      id="text-cerca"
+      name="text"
+      type="text"
+      required
+      minlength="3"
+      [(ngModel)]="filtres.text"
+      #campText="ngModel"
+      aria-describedby="error-text"
+    />
+    @if (campText.invalid && (campText.dirty || campText.touched)) {
+      <p id="error-text" class="error" role="alert">Escriu almenys 3 caràcters.</p>
+    }
+  </div>
+
+  <div class="camp">
+    <label for="comarca">Comarca</label>
+    <select id="comarca" name="comarca" [(ngModel)]="filtres.comarca">
+      <option value="Totes">Totes</option>
+      @for (comarca of comarques; track comarca) {
+        <option [value]="comarca">{{ comarca }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="botons">
+    <button type="submit" [disabled]="formulariFiltres.invalid">Aplicar filtres</button>
+    <button type="button" class="secundari" (click)="restableixFiltres(formulariFiltres)">Restablir</button>
+  </div>
+</form>

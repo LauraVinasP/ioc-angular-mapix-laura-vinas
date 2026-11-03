@@ -1,20 +1,54 @@
-<main class="app-container">
-  <div class="content">
-    <h1>{{ appName }}</h1>
-    <p>Benvinguts a {{ appName }}, una app per petits aventurers, creada per Laura Viñas</p>
-    <section class="card">
-      <h2>Dades del projecte</h2>
-      <ul>
-        <li>Autora: Laura Viñas</li>
-        <li>Framework: Angular 22</li>
-        <li>Mòdul: DA2_OA01</li>
-        <li>Estat: En desenvolupament - proves de canvis.</li>
-      </ul>
+<a class="skip-link" href="#contingut-principal">Salta al contingut principal</a>
+
+<header class="capcalera">
+  <h1>{{ appName }}</h1>
+  <p>Rutes d'aventura per a petits exploradors</p>
+</header>
+
+<main id="contingut-principal" class="app-container" tabindex="-1">
+  <app-barra-filtres (filtresCanviats)="actualitzaFiltres($event)" />
+
+  <div class="contingut">
+    <section class="zona-llista" aria-labelledby="titol-llista">
+      <h2 id="titol-llista">Rutes</h2>
+      <app-llista-ruta
+        [rutes]="rutesFiltrades"
+        [rutaSeleccionadaId]="rutaSeleccionada?.id ?? null"
+        (selecciona)="seleccionaRuta($event)"
+      />
     </section>
-    <p>Projecte base llest</p>
+
+    <aside class="detall" aria-labelledby="titol-detall" aria-live="polite">
+      <h2 id="titol-detall">Detall de la ruta</h2>
+
+      @if (rutaSeleccionada) {
+        <h3>{{ rutaSeleccionada.nom }}</h3>
+        <p class="nom-real">{{ rutaSeleccionada.nomReal }}</p>
+        <p>{{ rutaSeleccionada.descripcio }}</p>
+
+        <dl>
+          <dt>Comarca</dt>
+          <dd>{{ rutaSeleccionada.comarca }}</dd>
+          <dt>Temàtica</dt>
+          <dd>{{ rutaSeleccionada.tematica }}</dd>
+          <dt>Dificultat</dt>
+          <dd>{{ rutaSeleccionada.dificultat }}</dd>
+          <dt>Distància</dt>
+          <dd>{{ rutaSeleccionada.distanciaKm }} km</dd>
+          <dt>Publicada</dt>
+          <dd>
+            <time [attr.datetime]="rutaSeleccionada.dataPublicacio">
+              {{ rutaSeleccionada.dataPublicacio | date: 'dd/MM/yyyy' }}
+            </time>
+          </dd>
+        </dl>
+
+        <button type="button" (click)="tancaDetall()">Tancar detall</button>
+      } @else {
+        <p>Selecciona una ruta per veure'n el detall.</p>
+      }
+    </aside>
   </div>
-  <aside>
-    <p>Properament rutes amb pistes i jocs</p>
-  </aside>
 </main>
+
 <router-outlet></router-outlet>

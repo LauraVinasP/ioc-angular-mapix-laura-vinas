@@ -17,3 +17,8 @@ export interface Ruta {
     destacada?: boolean;
 }
 
+export interface FiltresRuta {
+    text: string;
+    comarca: Comarca | 'Totes';
+}
+

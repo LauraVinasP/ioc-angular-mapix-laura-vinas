@@ -1,0 +1,19 @@
+<p class="comptador" role="status" aria-live="polite">
+    {{ rutes.length }} {{ rutes.length === 1 ? 'ruta trobada' : 'rutes trobades' }}
+</p>
+
+@if (rutes.length > 0) {
+    <ul class="llista">
+        @for (ruta of rutes; track ruta.id) {
+            <li>
+                <app-targeta-ruta
+                    [ruta]="ruta"
+                    [seleccionada]="ruta.id === rutaSeleccionadaId"
+                    (selecciona)="propagaSeleccio($event)"
+                ></app-targeta-ruta>
+            </li>
+        }
+    </ul>
+} @else {
+    <p class="sense-resultats">No hi ha cap ruta que coincideixi amb els filtres aplicats.</p>
+}

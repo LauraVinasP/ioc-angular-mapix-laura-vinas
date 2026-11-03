@@ -1,31 +1,99 @@
+:host {
+  display: block;
+  font-family: system-ui, sans-serif;
+  color: #1f2a1d;
+}
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #3b6e34;
+  color: #ffffff;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.capcalera {
+  padding: 1.5rem 1rem 0.5rem;
+  text-align: center;
+}
+
+.capcalera h1 {
+  margin: 0;
+  color: #3b6e34;
+}
+
+.capcalera p {
+  margin: 0.25rem 0 0;
+}
+
 .app-container {
-  display: flex;      // El div i el aside es col·loquen un al costat de l'altre
-  gap: 10rem;          // espai entre el div i el aside
-  padding: 2rem;      // marge interior
-  max-width: 1000px;  // ample màxim
-  margin: 0 auto;     // centra el contenidor
-  background: #fdeede;  // color de fons
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.content {
-  padding: 1rem;            // marge interior
-  text-align: center;        // centra el text 
-    }
-
-.card {
-  border : 1px solid #333431;  // línia de contorn
-  display: flex;//centrar el contingut del card
-  flex-direction: column;   // col·locar el contingut del card en columna
-  text-align: left;         // alinear el text a l'esquerra
-  border-radius: 5px;       // cantonades arrodonides
-  padding: 1rem;            // marge interior
-  background : #e4e9dd;          // color de fons
+.contingut {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
-aside {
-  border : 1px solid #576743;  // línia de contorn
-  background : #e4e9dd;          // color de fons
-  border-radius: 5px;       // cantonades arrodonides
-  padding: 1rem;            // marge interior
-  align-self: flex-start;  // ajustar l'aside al contingut. 
+.zona-llista h2,
+.detall h2 {
+  margin-top: 0;
+}
+
+.detall {
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f3f8f1;
+}
+
+.nom-real {
+  color: #555555;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem 1rem;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin: 0;
+}
+
+.detall button {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b6e34;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .contingut {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
   }
+
+  .detall {
+    position: sticky;
+    top: 1rem;
+  }
+}

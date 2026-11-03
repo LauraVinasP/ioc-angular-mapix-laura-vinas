@@ -1,0 +1,22 @@
+<article class="targeta" [class.seleccionada]="seleccionada">
+    <h3>{{ ruta.nom }}</h3>
+    <p class="nom real">{{ ruta.nomReal}}</p>
+
+    <div class="etiquetes">
+        <app-etiqueta-ruta [text]="ruta.tematica"></app-etiqueta-ruta>
+        <app-etiqueta-ruta [text]="ruta.dificultat"></app-etiqueta-ruta>
+        @if (ruta.destacada) {
+            <app-etiqueta-ruta text="Destacada" ></app-etiqueta-ruta>
+        }
+    </div>
+
+    <p class="info">{{ ruta.comarca }} · {{ ruta.distanciaKm }} km</p>
+    <p class="data">
+        Publicada el
+        <time [attr.datetime]="ruta.dataPublicacio">{{ ruta.dataPublicacio | date: 'dd/MM/yyyy' }}</time>
+    </p>
+
+    <button type="button" (click)="avisaSeleccio()" [attr.aria-pressed]="seleccionada">
+        Veure detall
+    </button>
+</article>
