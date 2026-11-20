@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NovaRuta } from './nova-ruta.component';
+import { NovaRutaComponent } from './nova-ruta.component';
 
-describe('NovaRuta', () => {
-  let component: NovaRuta;
-  let fixture: ComponentFixture<NovaRuta>;
+describe('NovaRutaComponent', () => {
+  let component: NovaRutaComponent;
+  let fixture: ComponentFixture<NovaRutaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NovaRuta],
+      imports: [NovaRutaComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NovaRuta);
+    fixture = TestBed.createComponent(NovaRutaComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
