@@ -7,15 +7,26 @@
 
 <main id="contingut-principal" class="app-container" tabindex="-1">
   <app-barra-filtres (filtresCanviats)="actualitzaFiltres($event)" />
+    <app-nova-ruta />
 
   <div class="contingut">
-    <section class="zona-llista" aria-labelledby="titol-llista">
+        <section class="zona-llista" aria-labelledby="titol-llista">
       <h2 id="titol-llista">Rutes</h2>
-      <app-llista-ruta
-        [rutes]="rutesFiltrades"
-        [rutaSeleccionadaId]="rutaSeleccionada?.id ?? null"
-        (selecciona)="seleccionaRuta($event)"
-      />
+
+      @if (carregant()) {
+        <p class="estat-carrega" role="status">Carregant rutes…</p>
+      } @else if (error()) {
+        <div class="banner-error" role="alert">
+          <p>{{ error() }}</p>
+          <button type="button" (click)="reintentar()">Reintentar</button>
+        </div>
+      } @else {
+        <app-llista-ruta
+          [rutes]="rutesFiltrades"
+          [rutaSeleccionadaId]="rutaSeleccionada?.id ?? null"
+          (selecciona)="seleccionaRuta($event)"
+        />
+      }
     </section>
 
     <aside class="detall" aria-labelledby="titol-detall" aria-live="polite">

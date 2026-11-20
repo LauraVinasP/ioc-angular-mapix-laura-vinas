@@ -1,0 +1,72 @@
+<section class="nova-ruta" aria-labelledby="titol-nova-ruta">
+  <h2 id="titol-nova-ruta">Nova ruta</h2>
+
+  <form [formGroup]="form" (ngSubmit)="desar()" novalidate>
+    <div class="camp">
+      <label for="nr-nom">Nom d'aventura</label>
+      <input id="nr-nom" type="text" formControlName="nom" />
+      @if (form.controls.nom.touched && form.controls.nom.invalid) {
+        <p class="error-camp">El nom és obligatori i ha de tenir almenys 3 caràcters.</p>
+      }
+    </div>
+
+    <div class="camp">
+      <label for="nr-nom-real">Nom real del recorregut</label>
+      <input id="nr-nom-real" type="text" formControlName="nomReal" />
+      @if (form.controls.nomReal.touched && form.controls.nomReal.invalid) {
+        <p class="error-camp">El nom real és obligatori.</p>
+      }
+    </div>
+
+    <div class="camp">
+      <label for="nr-comarca">Comarca</label>
+      <select id="nr-comarca" formControlName="comarca">
+        @for (comarca of comarques; track comarca) {
+          <option [value]="comarca">{{ comarca }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="camp">
+      <label for="nr-tematica">Temàtica</label>
+      <select id="nr-tematica" formControlName="tematica">
+        @for (tematica of tematiques; track tematica) {
+          <option [value]="tematica">{{ tematica }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="camp">
+      <label for="nr-dificultat">Dificultat</label>
+      <select id="nr-dificultat" formControlName="dificultat">
+        @for (dificultat of dificultats; track dificultat) {
+          <option [value]="dificultat">{{ dificultat }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="camp">
+      <label for="nr-distancia">Distància (km)</label>
+      <input id="nr-distancia" type="number" step="0.5" min="0.5" formControlName="distanciaKm" />
+      @if (form.controls.distanciaKm.touched && form.controls.distanciaKm.invalid) {
+        <p class="error-camp">La distància ha de ser d'almenys 0,5 km.</p>
+      }
+    </div>
+
+    <div class="camp camp-ample">
+      <label for="nr-descripcio">Descripció</label>
+      <textarea id="nr-descripcio" rows="3" formControlName="descripcio"></textarea>
+    </div>
+
+    <button type="submit" [disabled]="desant()">
+      @if (desant()) { Desant… } @else { Desar ruta }
+    </button>
+  </form>
+
+  @if (missatge()) {
+    <p class="missatge-ok" role="status">{{ missatge() }}</p>
+  }
+  @if (errorDesar()) {
+    <p class="missatge-error" role="alert">{{ errorDesar() }}</p>
+  }
+</section>

@@ -4,6 +4,11 @@ export type Tematica = 'Bosc encantat' | 'Castells' | 'Pirates' | 'Exploradors' 
 
 export type Dificultat = 'Fàcil' | 'Mitjana' | 'Difícil';
 
+export const COMARQUES: Comarca[] = ['Vallès Occidental', 'Vallès Oriental', 'Bages', 'Berguedà', 'Osona'];
+export const TEMATIQUES: Tematica[] = ['Bosc encantat', 'Castells', 'Dracs', 'Exploradors', 'Pirates'];
+export const DIFICULTATS: Dificultat[] = ['Fàcil', 'Mitjana', 'Difícil'];
+
+
 export interface Ruta {
     id: string;
     nom: string;

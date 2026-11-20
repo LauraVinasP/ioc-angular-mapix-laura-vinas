@@ -97,3 +97,20 @@ dd {
     top: 1rem;
   }
 }
+
+.estat-carrega {
+  padding: 1rem;
+  font-style: italic;
+}
+
+.banner-error {
+  padding: 1rem;
+  border: 2px solid #b00020;
+  border-radius: 8px;
+  background: #fdecea;
+  color: #7a0016;
+
+  button {
+    margin-top: 0.5rem;
+  }
+}

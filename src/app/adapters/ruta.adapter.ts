@@ -1,9 +1,6 @@
 import { RutaApi } from "../models/ruta-api.model";
-import { Comarca, Dificultat, Ruta, Tematica } from "../models/ruta.model";
+import { COMARQUES, DIFICULTATS, Ruta, TEMATIQUES } from '../models/ruta.model';
 
-const COMARQUES: Comarca[] = ['Vallès Occidental', 'Vallès Oriental', 'Bages', 'Berguedà', 'Osona'];
-const TEMATIQUES: Tematica[] = ['Bosc encantat', 'Castells', 'Dracs', 'Exploradors', 'Pirates'];
-const DIFICULTATS: Dificultat[] = ['Fàcil', 'Mitjana', 'Difícil'];
 
 //Netjem espais
 function netejarText(valor: string | undefined, perDefecte = ''): string {

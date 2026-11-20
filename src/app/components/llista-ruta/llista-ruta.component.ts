@@ -10,7 +10,7 @@ import { TargetaRutaComponent } from '../targeta-ruta/targeta-ruta.component';
 })
 export class LlistaRutaComponent {
   @Input({ required: true }) rutes!: Ruta[];
-  @Input() rutaSeleccionadaId: number | null = null;
+  @Input() rutaSeleccionadaId: string | null = null;
   @Output() selecciona = new EventEmitter<Ruta>();
 
   propagaSeleccio(ruta: Ruta): void {
