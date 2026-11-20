@@ -68,6 +68,14 @@ export class RutesService {
         );
     }
 
+    // Per a la validació asíncrona: hi ha alguna ruta amb aquest text?
+    teResultats(text: string): Observable<boolean> {
+        return this.http.get<RutaApi[]>(this.url).pipe(
+            map(adaptarRutes),
+            map(rutes => this.filtrarPerText(rutes, text).length > 0)
+        );
+    }
+
     private filtrarPerText(rutes: Ruta[], text: string): Ruta[] {
         const buscat = text.trim().toLowerCase();
         if (!buscat) return rutes;

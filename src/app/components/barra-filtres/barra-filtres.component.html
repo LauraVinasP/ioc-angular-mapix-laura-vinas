@@ -1,24 +1,29 @@
-<form class="filtres" #formulariFiltres="ngForm" (ngSubmit)="aplicaFiltres()">
+<form class="filtres" [formGroup]="form" (ngSubmit)="desaCerca()" novalidate>
   <div class="camp">
     <label for="text-cerca">Cerca per nom</label>
     <input
       id="text-cerca"
-      name="text"
       type="text"
-      required
-      minlength="3"
-      [(ngModel)]="filtres.text"
-      #campText="ngModel"
-      aria-describedby="error-text"
+      formControlName="text"
+      autocomplete="off"
+      aria-describedby="estat-cerca"
     />
-    @if (campText.invalid && (campText.dirty || campText.touched)) {
-      <p id="error-text" class="error" role="alert">Escriu almenys 3 caràcters.</p>
-    }
+    <div id="estat-cerca" aria-live="polite">
+      @if (text.pending) {
+        <p class="info">Comprovant si hi ha rutes…</p>
+      } @else if (text.dirty || text.touched) {
+        @if (text.hasError('minlength')) {
+          <p class="error">Escriu almenys 3 caràcters.</p>
+        } @else if (text.hasError('senseResultats')) {
+          <p class="error">No hi ha cap ruta que coincideixi amb "{{ text.value }}".</p>
+        }
+      }
+    </div>
   </div>
 
   <div class="camp">
     <label for="comarca">Comarca</label>
-    <select id="comarca" name="comarca" [(ngModel)]="filtres.comarca">
+    <select id="comarca" formControlName="comarca">
       <option value="Totes">Totes</option>
       @for (comarca of comarques; track comarca) {
         <option [value]="comarca">{{ comarca }}</option>
@@ -27,7 +32,21 @@
   </div>
 
   <div class="botons">
-    <button type="submit" [disabled]="formulariFiltres.invalid">Aplicar filtres</button>
-    <button type="button" class="secundari" (click)="restableixFiltres(formulariFiltres)">Restablir</button>
+    <button type="submit">Cercar</button>
+    <button type="button" class="secundari" (click)="netejaCerca()">Netejar cerca</button>
   </div>
 </form>
+
+@if (termesHistorial().length > 0) {
+  <section class="historial" aria-labelledby="titol-historial">
+    <h2 id="titol-historial">Cerques recents</h2>
+    <ul>
+      @for (terme of termesHistorial(); track $index) {
+        <li>
+          <button type="button" class="terme" (click)="recuperaCerca(terme)">{{ terme }}</button>
+        </li>
+      }
+    </ul>
+    <button type="button" class="secundari" (click)="esborraHistorial()">Esborrar historial</button>
+  </section>
+}

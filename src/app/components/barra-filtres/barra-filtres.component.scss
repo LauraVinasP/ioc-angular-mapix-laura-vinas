@@ -56,3 +56,26 @@ button.secundari {
     background-color: #ffffff;
     color: #3b6e34;
 }
+
+.info {
+  font-style: italic;
+  margin: 0;
+}
+
+.historial {
+  margin-top: 0.75rem;
+
+  h2 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem;
+  }
+}
