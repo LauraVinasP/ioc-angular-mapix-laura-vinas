@@ -2,7 +2,7 @@ import { Ruta } from '../models/ruta.model';
 
 export const RUTES_MOCK: Ruta[] = [
     {
-        id: 1,
+        id: '1',
         nom: 'La missió pirata del riu Ripoll',
         nomReal: 'Molins del riu Ripoll (Sabadell)',
         comarca: 'Vallès Occidental',
@@ -14,7 +14,7 @@ export const RUTES_MOCK: Ruta[] = [
         destacada: true,
     },
     {
-        id: 2,
+        id: '2',
         nom: 'El drac de la Mola',
         nomReal: 'Pujada a la Mola des de Can Robert (Matadepera)',
         comarca: 'Vallès Occidental',
@@ -25,7 +25,7 @@ export const RUTES_MOCK: Ruta[] = [
         descripcio: 'Descobreix la llegenda del drac que dorm a dalt de la Mola.',
     },
     {
-        id: 3,
+        id: '3',
         nom: 'El bosc encantat del Montseny',
         nomReal: 'Ruta per la fageda de Santa Fe (Montseny)',
         comarca: 'Vallès Oriental',
@@ -36,7 +36,7 @@ export const RUTES_MOCK: Ruta[] = [
         descripcio: 'Endinsa\'t en un bosc màgic ple de criatures fantàstiques.',
     },
     {
-        id: 4,
+        id: '4',
         nom: 'Exploradors del Torrent',
         nomReal: 'Ruta pel Torrent dels Colobrers (Castellar del Vallès)',
         comarca: 'Vallès Occidental',
@@ -47,7 +47,7 @@ export const RUTES_MOCK: Ruta[] = [
         descripcio: 'Busquem roques amb formes estranyes i rastres d\'animals.',
     },
     {
-        id: 5,
+        id: '5',
         nom: 'El castell perdut de Montbui',
         nomReal: 'Castell de Montbui (Bigues i Riells)',
         comarca: 'Vallès Oriental',
@@ -58,7 +58,7 @@ export const RUTES_MOCK: Ruta[] = [
         descripcio: 'Descobreix la història i les llegendes del castell de Montbui.',
     },
     {
-        id: 6,
+        id: '6',
         nom: 'El secret del castell de Cardona',
         nomReal: 'Castell de Cardona (Cardona)',
         comarca: 'Bages',
@@ -69,7 +69,7 @@ export const RUTES_MOCK: Ruta[] = [
         descripcio: 'Passeig al voltant del castell resolent enigmes de cavallers.',
     },
     {
-        id: 7,
+        id: '7',
         nom: 'Pirates del Cardener',
         nomReal: 'Ruta pel riu Cardener (Santpedor)',
         comarca: 'Bages',
@@ -80,7 +80,7 @@ export const RUTES_MOCK: Ruta[] = [
         descripcio: 'Aventura pirata navegant a peu al costat del riu Cardener fins al port secret.',
     },
     {
-        id: 8,
+        id: '8',
         nom: 'El drac de Rupit',
         nomReal: 'Pont penjat de Rupit (Rupit i Pruit)',
         comarca: 'Osona',
@@ -92,7 +92,7 @@ export const RUTES_MOCK: Ruta[] = [
         destacada: true,
     },
     {
-        id: 9,
+        id: '9',
         nom: 'Els guardians de Montesquiu',
         nomReal: 'Parc del castell de Montesquiu (Montesquiu)',
         comarca: 'Osona',
@@ -103,7 +103,7 @@ export const RUTES_MOCK: Ruta[] = [
         descripcio: 'Recorrem el parc del castell buscant els seus guardians.',
     },
     {
-        id: 10,
+        id: '10',
         nom: 'Exploradors de les Fonts del Llobregat',
         nomReal: 'Ruta per les Fonts del Llobregat (Castellar de n\'Hug)',
         comarca: 'Berguedà',

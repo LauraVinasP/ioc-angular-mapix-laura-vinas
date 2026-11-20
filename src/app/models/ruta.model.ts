@@ -5,7 +5,7 @@ export type Tematica = 'Bosc encantat' | 'Castells' | 'Pirates' | 'Exploradors' 
 export type Dificultat = 'Fàcil' | 'Mitjana' | 'Difícil';
 
 export interface Ruta {
-    id: number;
+    id: string;
     nom: string;
     nomReal: string;
     comarca: Comarca;
